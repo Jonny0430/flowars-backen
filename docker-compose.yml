@@ -1,0 +1,42 @@
+# services:
+#   backend:
+#     container_name: nestjs-backend
+#     restart: always
+#     image: node:20.18.0
+#     ports:
+#       - 8001:8000
+#     env_file:
+#       - .env  # .env faylini ulash
+#     volumes:
+#       - "./:/usr/src/app"  # Backend directory mapping
+#     working_dir: /usr/src/app
+
+#     networks:
+#       - client-network
+
+#     command: bash -c "npm install --legacy-peer-deps && npm run build && npm run start"
+
+# networks:
+#   client-network:
+#     driver: bridge
+
+version: '3'
+services:
+  backend:
+    container_name: nestjs-backend
+    restart: always
+    image: node:20.18.0
+    ports:
+      - 8001:8000
+    env_file:
+      - .env
+    volumes:
+      - "./:/usr/src/app"
+    working_dir: /usr/src/app
+    networks:
+      - client-network  # O'zgarish: tarmoqni client-network qilib o'zgartiring
+    command: bash -c "npm install --legacy-peer-deps && npm run build && npm run start"
+
+networks:
+  client-network:
+    driver: bridge
