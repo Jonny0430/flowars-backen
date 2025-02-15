@@ -1,5 +1,4 @@
 export class PaymentBooksDto {
-	price: number
-	paymentMethod: string
+  price: number;
+  paymentMethod: string;
 }
-

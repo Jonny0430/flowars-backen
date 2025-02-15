@@ -1,7 +1,7 @@
 export class ApproveAgentDto {
-	agentId: string
+  agentId: string;
 }
 
 export class DeleteProductDto {
-	productId: string
+  productId: string;
 }
